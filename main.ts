@@ -1,4 +1,26 @@
-let my_sprite = sprites.create(img`
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    answer = randint(1, 8)
+    if (answer == 1) {
+        _8_Ball.sayText("It’s looking like a yes.")
+    } else if (answer == 2) {
+        _8_Ball.sayText("I think so, for sure.")
+    } else if (answer == 3) {
+        _8_Ball.sayText("That is a yes.")
+    } else if (answer == 4) {
+        _8_Ball.sayText("I don’t think that’ll happen.")
+    } else if (answer == 5) {
+        _8_Ball.sayText("Probably not.")
+    } else if (answer == 6) {
+        _8_Ball.sayText("I doubt it.")
+    } else if (answer == 7) {
+        _8_Ball.sayText("It could go either way.")
+    } else {
+        _8_Ball.sayText("Hard to tell right now.")
+    }
+})
+let answer = 0
+let _8_Ball: Sprite = null
+_8_Ball = sprites.create(img`
     ...............bbbbbbbbbbbbbbbbbbb...............
     ...........bbbbdd111111111111111ddbbbb...........
     ........bbbd1111111111111111111111111dbbb........
@@ -23,4 +45,6 @@ let my_sprite = sprites.create(img`
     ........bbbdd11111111111111111111111ddbbb........
     ...........bbbbbddd11111111111dddbbbbb...........
     ................bbbbbbbbbbbbbbbbb................
-`, SpriteKind.Player)
+    `, SpriteKind.Player)
+_8_Ball.setPosition(81, 98)
+game.splash("Think of a question.")
